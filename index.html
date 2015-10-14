@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Rig</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+
+    <!-- Lets make use of jquery -->
+    <script src="bower_components/jquery/dist/jquery.min.js" type="application/javascript"></script>
+    <!-- Handlebars -->
+    <script src="bower_components/handlebars/handlebars.js" type="application/javascript"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body class="container">
+    <br/>
+    <div id="results"></div>
+
+    <script id="partial-result" type="text/x-handlebars-template">
+        <div class="entry">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    {{#if status}}
+                    <h3 class="panel-title"><span class="label label-default">Suite: {{name}}</span></h3>
+                    {{else}}
+                    <h3 class="panel-title"><span class="label label-danger">Suite: {{name}}</span></h3>
+                    {{/if}}
+                </div>
+                <div class="panel-body">
+                    <div>
+                        {{#each tests}}
+                            <div>
+                                {{#if status}}
+                                <div class="label label-success">True</div>
+                                {{else}}
+                                <div class="label label-danger">False</div>
+                                {{/if}}
+
+                                <div class="label label-info">Test: {{name}}</div>
+                                <div class="label label-danger">{{error}}</div>
+                            </div>
+                        {{/each}}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </script>
+
+
+    <!-- Something to emulate jasmine -->
+    <script src="utils.js" type="application/javascript"></script>
+    <script src="jasmine/jasmine.js" type="application/javascript"></script>
+    <script src="jasmine/presenter.js" type="application/javascript"></script>
+
+    <script src="scope.js" type="application/javascript"></script>
+    <script src="test/scope_spec.js" type="application/javascript"></script>
+</body>
+</html>
