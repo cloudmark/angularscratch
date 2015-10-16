@@ -63,6 +63,9 @@ function injectTestRig(scope) {
                     hasThrown = true;
                 }
                 currScope.assert.call(null, hasThrown, true, "Expected function to throw an error. ");
+            },
+            toBeDefined: function() {
+                currScope.assert.call(null, !!expectation, true, "Expected object to be defined");
             }
         }
     };

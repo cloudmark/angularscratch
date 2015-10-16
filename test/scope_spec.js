@@ -1,6 +1,6 @@
 'use strict';
 
-hookPresenter(new HandlebarsPresenter($('#results'), $("#partial-result")));
+
 
 describe("Scope and Digest", function(){
 
